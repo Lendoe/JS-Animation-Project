@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+#myContainer{
+	width: 760px;
+	height: 760px;
+	position:relative;
+	background-color:black;
+	/*background-image: url(https://media.giphy.com/media/xUOxeR46VtbvkOO2vC/giphy.gif);*/
+	/*background-size: 100% 100%;*/
+}
+
+
+
+
+
+#leftAnimation{
+	width: 30px;
+	height:110px;
+	left:730px;
+	bottom: 10px;	
+	position: absolute;
+	background-color:green;
+
+}
+
+
+#ballAnimation{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	position: absolute;
+	background-color:white;
+}
+
+#rightAnimation{
+	width: 30px;
+	height:110px;
+	bottom: 10px;	
+	position: absolute;
+	background-color: red;
+}
+
+
+	
+</style>
+<body>
+<h1>My First JavaScript Animation</h1>
+<div id="myContainer">
+	<div id="ballAnimation"></div>
+	<div id="leftAnimation"></div>
+	<div id="rightAnimation"></div>
+</div>
+<button onclick="Move()">Click Me</button>
+
+
+<script type="text/javascript">
+
+
+// this is the left side animation
+
+function Move2(){ 
+		var elem = document.getElementById("rightAnimation");
+		var pos2 = 0;
+		var pos3 = 0;
+		var id2 = setInterval(frame2, 5);
+		function frame2(){
+
+			if (pos2 > 650){
+				if(pos3 ==-1){
+					pos2 = 0
+					pos3 = 0
+				}
+				else{
+				pos3 = 650 - (pos2-650)
+				elem.style.bottom = pos3 + 'px';
+				pos2++;
+				console.log(pos3)
+				}
+			}
+			else{
+				pos2++;
+				elem.style.bottom = pos2 + 'px';
+			}
+		}
+	}
+
+// this is the ball animation
+
+
+	function Movered(){
+		var elem = document.getElementById("leftAnimation");
+		var pos2 = 0
+		var pos3 = 0
+		var id = setInterval(frame, 5);
+		function frame(){
+
+			// new
+			
+			if (pos2 > 650){
+				if(pos3 ==-1){
+					pos2 = 0
+					pos3 = 0
+				}
+				else{
+				pos3 = 650 - (pos2-650)
+				elem.style.bottom = pos3 + 'px';
+				pos2++;
+				console.log(pos3)
+				}
+			}
+			else{
+				pos2++;
+				elem.style.bottom = pos2 + 'px';
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// 		if( pos >650){
+	// 			pos ++;
+
+	// 			elem.style.bottom = pos + 'px';
+	// 			clearInterval(id);
+	// 			// setTimeout(Movered, 9500)
+
+	// 		}
+
+			
+
+	// 		// if (pos == 700){
+	// 		// 	clearInterval(id);
+	// 		// }
+
+	// 			else{
+	// 				pos++;
+	// 				// elem.style.right = pos + 'px';
+	// 				elem.style.top = pos + 'px';
+	// 		}
+	// 	}
+	// }
+
+
+// right side animaton
+// green
+
+	function Move(){
+		var elem = document.getElementById("ballAnimation");
+		var pos = -60
+		var id = setInterval(frame, 6);
+		function frame(){
+			
+			if( pos <= 350){
+				pos ++;
+
+				elem.style.top = pos - 'px';
+
+			}
+
+			if (pos == 700){
+				clearInterval(id);
+			}
+
+				else{
+					pos++;
+					elem.style.bottom = pos + 'px';
+					elem.style.right = pos + 'px';
+			}
+		}
+
+	}
+	function All(){
+		Move();
+		Move2();
+		Movered();
+
+	}
+All();
+</script>
+</div>
+
+</body>
+</html>
